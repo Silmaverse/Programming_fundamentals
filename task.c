@@ -1,9 +1,17 @@
 #include <stdio.h>
 int main(){
-     int a,b;
-     scanf("%d%d",&a,&b);
-     if(a>b) printf("%d>%d",a,b);
-     else if(a<b) printf("%d<%d",a,b);
-     else printf("%d=%d",a,b);
-     return 0;    
-}
+     int weight ,height;
+	scanf("%d%d",&weight,&height);
+	if(weight>=60){
+	   if(height<=130){
+	       printf("Yes");
+	   }else{
+	     printf("No");    
+	   } 
+	   
+	}else{
+	    printf("No");
+	}
+}  
+
+
