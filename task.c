@@ -1,17 +1,14 @@
 #include <stdio.h>
-int main(){
-     int weight ,height;
-	scanf("%d%d",&weight,&height);
-	if(weight>=60){
-	   if(height<=130){
-	       printf("Yes");
-	   }else{
-	     printf("No");    
-	   } 
-	   
+
+int main() {
+	// your code goes here
+	int N;
+	scanf("%d",&N);
+	if(6<=N && N<=8){
+	    printf("Yes");
 	}else{
 	    printf("No");
 	}
-}  
+	return 0;
 
-
+}
