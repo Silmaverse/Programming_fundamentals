@@ -3,14 +3,14 @@
 
 int main() {
 	// your code goes here
-	int x,t;
-	scanf("%d",&t);
-	while (t--){
-		scanf("%d",&x);
-		double single_commision=(20*x)/100.0;
-		int sell=ceil(100.0/single_commision);
-		printf("%d\n",sell);
-	}
+	// int t;
+	// scanf("%d",&t);
+	// while (t--){
+		
+	// }
+	int a,b,c,d,e,f;
+	scanf("%d%d%d",&a,&b,&c,&d,&e,&f);
 
+	
     return 0;
 }
