@@ -1,25 +1,24 @@
 #include <stdio.h>
-#include <limits.h>
+#include <stdlib.h>
 
 int main() {
-  int t;
-  scanf("%d",&t);
-  while (t--){
-    int n,a;
-    scanf("%d",&n);
-    int arr[n];
-    int ans=-1;
-    for(int i=0;i<=n;i++){
-      arr[i]=0;
-    }
-    for(int i=0;i<n;i++){
-       scanf("%d",&a);
-       if(++arr[a]>=3){
-         ans=a;
-       }
-    }
-    printf("%d\n",ans);
+  int n;
+  scanf("%d",&n);
+  int arr[n];
+  for(int i=0;i<n;i++){
+     scanf("%d",&arr[i]);
   }
   
+  for(int i=1;i<n;i++){
+    if(abs(arr[i]-arr[i-1])==1){
+       printf("%d ",arr[i]);
+    }
+    else if(arr[i]>arr[i-1]){
+      for(int j=arr[i-1];j<=arr[i];j++) printf("%d ",j);
+    }
+    else{
+      for(int j=arr[i-1];j<=arr[i];j--) printf("%d ",j);
+    }
+  }
   return 0;
 }
