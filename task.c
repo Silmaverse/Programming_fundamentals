@@ -1,35 +1,27 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main() {
-  int n;
-  scanf("%d",&n);
-  int arr[n+1];
-  int b[n+1];
-  for(int i =1;i<=n;i++){
-      scanf("%d",&arr[i]);
-  }
-  for(int i =1;i<=n;i++){
-     b[i]=0;
-  }
-  for(int i=1;i<=n;i++){
-     if(b[i]==0){
-       b[arr[i]]=1;
-     } 
-  }
+int main(){
+        
+    int n;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i =0;i<n;i++) scanf("%d",&arr[i]);
+    
+    int f[n];
+    for(int i =0;i<n;i++) f[i]=0;
 
-  int ans=0;
-  for(int i=1;i<=n;i++){
-      if(b[i]==0){
-        ans++;
-      }
-  }
-  printf("%d\n",ans);
-  for (int i = 1; i <=n ; i++){
-    if(b[i]==0){
-      printf("%d ",i);
+    for (int i = 0; i < n ; i++) {
+        f[arr[i]]++;
     }
-  }
-  
-  return 0;
+    int mx=0;
+    for(int i=1;i<n;i++){
+        if(f[i]>mx){
+           mx=f[i];
+        }
+    }
+     
+    printf("%d",n-mx);
+    
+
+ return 0;
 }
