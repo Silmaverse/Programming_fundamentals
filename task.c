@@ -1,42 +1,42 @@
-#include <stdio.h>
+#include<stdio.h>
 
 int main(){
-   int n,m;
-   scanf("%d%d",&n,&m);
 
-   int arr[n][m];
-   int total_saddle = 0;
-
-   for(int i=0;i<n;i++){
-      for(int j=0;j<m;j++){
-         scanf("%d",&arr[i][j]);
+    int n;
+    scanf("%d",&n);
+    char arr[n][n];
+    char newarr[n][n];
+    for(int i=0;i<n;i++){
+      for(int j=0;j<n;j++){
+         scanf(" %c",&arr[i][j]);
+         newarr[i][j]=arr[i][j];
       }
-   }
+    }
 
-   for(int i=0;i<n;i++){
-      int saddle_point = arr[i][0];
-      int col_ind = 0;
+    //1st row
+    for(int j=1;j<n;j++){
+      newarr[0][j]=arr[0][j-1];
+    }
+    //last col
+    for(int i=1;i<n;i++){
+      newarr[i][n-1]=arr[i-1][n-1];
+    }
+    //last row
+    for(int j=n-2; j>=0;j--){
+      newarr[n-1][j]=arr[n-1][j+1];
+    }
+    //1st col
+    for(int i=n-2; i>=0;i--){
+      newarr[i][0]=arr[i+1][0];
+    }
+     printf("\n");
 
-      for(int j=1;j<m;j++){
-         if(arr[i][j] < saddle_point){
-            saddle_point = arr[i][j];
-            col_ind = j;
-         }
+    for(int i=0;i<n;i++){
+      for(int j=0;j<n;j++){
+         printf("%c",newarr[i][j]);
       }
+      printf("\n");
+    }
 
-      int k;
-      for(k=0;k<n;k++){
-         if(arr[k][col_ind] > saddle_point){
-            break;
-         }
-      }
-
-      if(k==n){
-         total_saddle++;
-      }
-   }
-
-   printf("%d",total_saddle);
-
-   return 0;
+    return 0;
 }
