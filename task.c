@@ -1,78 +1,54 @@
 #include<stdio.h>
-
 int main(){
-  int h,w;
-  scanf("%d%d",&h,&w);
-  char arr[h][w];
+ int n;
+ scanf("%d",&n);
+ int A[n+1][n+1];
+ int B[n+1][n+1];
+ int temp[n+1][n+1];
 
-  for(int i=0;i<h;i++){
-    for(int j=0;j<w;j++){
-      scanf(" %c",&arr[i][j]);
-    }
+ for(int i=1;i<=n;i++){
+  for(int j=1;j<=n;j++){
+    scanf("%d",&A[i][j]);
   }
+ }
 
-  for(int i=0;i<h;i++){
-    for(int j=0;j<w;j++){
-      //type 1 row right check
-      if(i>=0  && i<h && j+4>=0 && j+4<w){
-        if(arr[i][j]=='s' && arr[i][j+1]=='n' && arr[i][j+2]=='u'&& arr[i][j+3]=='k' && arr[i][j+4]=='e'){
-          printf("%d %d\n%d %d\n%d %d\n%d %d\n%d %d\n",i+1,j+1,i+1,j+2,i+1,j+3,i+1,j+4,i+1,j+5);
-          return 0;
-        }
+ for(int i=1;i<=n;i++){
+  for(int j=1;j<=n;j++){
+    scanf("%d",&B[i][j]);
+  }
+ }
+ 
+ for(int k=0;k<4;k++){
+   int flag=1;
+   for(int i=1;i<=n;i++){
+     for(int j=1;j<=n;j++){
+      if(A[i][j]==1  && B[i][j]==0){
+         flag=0;
+         break;
       }
-        //type 2 row left check
-        if(i>=0  && i<h && j-4>=0 && j-4<w){
-          if(arr[i][j]=='s' && arr[i][j-1]=='n' && arr[i][j-2]=='u'&& arr[i][j-3]=='k' && arr[i][j-4]=='e'){
-            printf("%d %d\n%d %d\n%d %d\n%d %d\n%d %d\n",i+1,j+1,i+1,j-1+1,i+1,j-2+1,i+1,j-3+1,i+1,j-4+1);
-            return 0;
-          }
-        }
-        //type 3 col top check
-        if(i-4>=0 && i-4<h && j>=0 && j<w){
-          if(arr[i][j]=='s' && arr[i-1][j]=='n' && arr[i-2][j]=='u'&& arr[i-3][j]=='k' && arr[i-4][j]=='e'){
-            printf("%d %d\n%d %d\n%d %d\n%d %d\n%d %d\n",i+1,j+1,i-1+1,j+1,i-2+1,j+1,i-3+1,j+1,i-4+1,j+1);
-            return 0;
-          }
-        }
-        //type 4 col bottom check
-        if(i+4>=0  && i+4<h && j>=0 && j<w){
-          if(arr[i][j]=='s' && arr[i+1][j]=='n' && arr[i+2][j]=='u'&& arr[i+3][j]=='k' && arr[i+4][j]=='e'){
-            printf("%d %d\n%d %d\n%d %d\n%d %d\n%d %d\n",i+1,j+1,i+1+1,j+1,i+2+1,j+1,i+3+1,j+1,i+4+1,j+1);
-            return 0;
-          }
-        }
-        //type 5 top left check
-        if(i-4>=0 && i-4<h && j-4>=0 && j-4<w){
-          if(arr[i][j]=='s' && arr[i-1][j-1]=='n' && arr[i-2][j-2]=='u'&& arr[i-3][j-3]=='k' && arr[i-4][j-4]=='e'){
-            printf("%d %d\n%d %d\n%d %d\n%d %d\n%d %d\n",i+1,j+1,i-1+1,j-1+1,i-2+1,j-2+1,i-3+1,j-3+1,i-4+1,j-4+1);
-            return 0;
-          }
-        }
-        //type 6 top right check
-        if(i-4>=0  && i-4<h && j+4>=0 && j+4<w){
-          if(arr[i][j]=='s' && arr[i-1][j+1]=='n' && arr[i-2][j+2]=='u'&& arr[i-3][j+3]=='k' && arr[i-4][j+4]=='e'){
-            printf("%d %d\n%d %d\n%d %d\n%d %d\n%d %d\n",i+1,j+1,i-1+1,j+1+1,i-2+1,j+2+1,i-3+1,j+3+1,i-4+1,j+4+1);
-            return 0;
-          }
-        }
-        //type 7 bottom left check
-        if(i+4>=0  && i+4<h && j-4>=0 && j-4<w){
-          if(arr[i][j]=='s' && arr[i+1][j-1]=='n' && arr[i+2][j-2]=='u'&& arr[i+3][j-3]=='k' && arr[i+4][j-4]=='e'){
-            printf("%d %d\n%d %d\n%d %d\n%d %d\n%d %d\n",i+1,j+1,i+1+1,j-1+1,i+2+1,j-2+1,i+3+1,j-3+1,i+4+1,j-4+1);
-            return 0;
-          }
-        }
-        //type 1 bottom right check
-        if(i+4>=0  && i+4<h && j+4>=0 && j+4<w){
-          if(arr[i][j]=='s' && arr[i+1][j+1]=='n' && arr[i+2][j+2]=='u'&& arr[i+3][j+3]=='k' && arr[i+4][j+4]=='e'){
-            printf("%d %d\n%d %d\n%d %d\n%d %d\n%d %d\n",i+1,j+1,i+1+1,j+1+1,i+2+1,j+2+1,i+3+1,j+3+1,i+4+1,j+4+1);
-            return 0;
-          }
-        }
-
     }
-  }
+   }
+   if(flag){
+     printf("Yes\n");
+     return 0;
+   }
+   //rotate
+   for(int i=1;i<=n;i++){
+    for(int j=1;j<=n;j++){
+       temp[i][j]=A[n+1-j][i];
+    }
+   }
 
+   
+   for(int i=1;i<=n;i++){
+    for(int j=1;j<=n;j++){
+       A[i][j]=temp[i][j];
+    }
+   }
 
+ }
+ printf("No");
+ 
+ 
  return 0;
 }
