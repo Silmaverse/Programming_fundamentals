@@ -1,21 +1,26 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <string.h>
+
 int main(){
- int n,m;
- scanf("%d%d",&n,&m);
- int arr[n+1][m+1];
- int count=1;
- for(int i=1;i<=n;i++){
-  for(int j=1;j<=m;j++){
-    arr[i][j]=count++;
+  int t;
+  scanf("%d",&t);
+  while (t--)
+  {
+    /* code */
+    
+    int n,k;
+    scanf("%d%d",&n,&k);
+    char eraser[n+1];
+    scanf("%s",&eraser);
+    int count=0;
+    for(int i=0;i<n;i++){
+      if(eraser[i]=='B'){
+        i+=k-1;
+        count++;
+      }
+    }
+    printf("%d\n",count);
   }
- }
+  return 0;
 
- for(int i=1;i<=n;i++){
-  for(int j=1;j<=m;j++){
-    printf("%d ",arr[i][j]);
-  }
-  printf("\n");
- }
-
- return 0;
 }
