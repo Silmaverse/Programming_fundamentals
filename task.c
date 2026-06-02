@@ -1,44 +1,82 @@
 #include <stdio.h>
 #include <string.h>
+char str[1000001];
 
 int main(){
-  int n,m;
-  scanf("%d%d",&n,&m);
-  char str[n+1];
-  char ttr[m+1];
   scanf("%s",str);
-  scanf("%s",ttr);
-  int pre=1,suff=1;
+  int n=strlen(str);
+  int freq[26];
+  for(int i=0;i<26;i++){
+      freq[i]=0;
+  }
   for(int i=0;i<n;i++){
-    if(str[i]!=ttr[i]){
-      pre=0;
-      break;
+    freq[str[i]-'A']++;
+  }
+  //even number of letter;
+  if(n%2==0){
+    int flag=1;
+    for(int i=0;i<26;i++){
+      if(freq[i]%2==1){
+        flag=0;
+        break;
+      }
+    }
+    if(flag==0) printf("NO SOLUTION\n");
+    else{
+      for(int i=0;i<26;i++){
+        //freq[i]/2
+        for(int j=0;j<freq[i]/2;j++){
+          char ch=(char)('A'+i);
+          printf("%c",ch);
+        }        
+      }
+      for(int i=25;i>=0;i--){
+        //freq[i]/2
+        for(int j=0;j<freq[i]/2;j++){
+          char ch=(char)('A'+i);
+          printf("%c",ch);
+        }
+      }
+      printf("\n");
+    }
+
+  }else{
+    int count=0,oddalpha=-1;
+    for(int i=0;i<26;i++){
+      if(freq[i]%2==1){
+        count++;
+        oddalpha=i;
+      }
+    }
+    if(count==1){
+      for(int i=0;i<26;i++){
+        if(i!=oddalpha){
+          for(int j=0;j<freq[i]/2;j++){
+            char ch=(char)('A'+i);
+            printf("%c",ch);
+          }        
+        }
+      }
+      
+      for(int j=0;j<freq[oddalpha];j++){
+          char ch=(char)('A'+oddalpha);
+          printf("%c",ch);
+      }
+      
+      for(int i=25;i>=0;i--){
+        if(i!=oddalpha){
+          for(int j=0;j<freq[i]/2;j++){
+            char ch=(char)('A'+i);
+            printf("%c",ch);
+          }
+        }
+      }
+      printf("\n");
+
+    }else{
+      printf("NO SOLUTION\n");
     }
   }
-  int l=m-1;
-  for(int i=n-1;i>=0;i--){
-    if(str[i]!=ttr[l]){
-      suff=0;
-      break;
-    }
-    l--;
-  }
-  if(pre==1 && suff==1){
-    printf("0");
-    return 0;
-  }
-  if(pre==1){
-    printf("1");
-    return 0;
-  }
-  if(suff==1){
-    printf("2");
-    return 0;
-  }
-  if(pre==0 && suff==0){
-    printf("3");
-    return 0;
-  }
-  
+
   return 0;
 }
