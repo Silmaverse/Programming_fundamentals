@@ -1,19 +1,16 @@
 #include <stdio.h>
-#include <math.h>
 
 int main(){
-  int n;
-  scanf("%d",&n);
-  int ans=0;
-  for(int a=1;a<=n;a++){
-    for(int b=a;b<=n;b++){
-      int csqua=(a*a+b*b);
-      int c=sqrt(csqua);
-      if(c>=1 && c<=n && c*c==csqua){
-        ans++;
-      }
+  int t;
+  scanf("%d",&t);
+  while (t--){
+    int n;
+    scanf("%d",&n);
+    for(int i=2;i<=n+1;i++){
+      printf("%d ",i);
     }
+    printf("\n");
   }
-  printf("%d",ans);
+  
   return 0;
 }
