@@ -1,34 +1,21 @@
 #include <stdio.h>
-int isPalindrome(int x){
-  int rev=0, temp=x;
-  while (temp>0){
-    rev=rev*10+temp%10;
-    temp/=10;
-  }
-  return rev==x;
-}
 
 int main(){
   int t;
   scanf("%d",&t);
-  while (t--){
-    
-    
-    int n;
-    scanf("%d",&n);
-    int found=0;
-    for(int a=0;a<=n;a++){
-      if(isPalindrome(a)){
-        int b=n-a;
-        if(b>=0 && b%12==0){
-          printf("%d %d\n",a,b);
-          found=1;
-          break;
-        }
+  while (t--){ 
+    int arr[3];
+    for(int i=0;i<3;i++) scanf("%d",&arr[i]);
+    int l=0,r=0;
+    for(int i=0;i<3;i++){
+      if(arr[i]==0){
+        l=1;
+      }else if(arr[i]==1){
+        r=1;
       }
     }
-    if(found==0) printf("-1\n");
-
-  }
+    if(l==1 && r==1) printf("%d\n",1);
+    else printf("%d\n",0);
+  } 
   return 0;
 }
