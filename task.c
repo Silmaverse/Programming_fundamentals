@@ -1,20 +1,18 @@
 #include <stdio.h>
 #include <string.h>
+
 int main(){
   int t;
   scanf("%d",&t);
-  while (t--){ 
-    int n;
-    scanf("%d",&n);
-    int ans=0;
-    for(int firstdigit=1;firstdigit<=9;firstdigit++){
-      int num=firstdigit;
-      while(num<=n){
-        ans++;
-        num=num*10; 
-      }
+  while (t--){
+    int k;
+    scanf("%d",&k);
+    char *direction[]={"North","East","South","West"};
+    int idx=0;
+    for(int i=0;i<k;i++){
+      idx=(idx+1)%4;
     }
-    printf("%d\n",ans);
+    printf("%s\n",direction[idx]);
   }
-    return 0;
+  return 0;
 }
