@@ -1,11 +1,15 @@
-#include <stdio.h>
+  #include <stdio.h>
+  #include <math.h>
 
-int main(){
-  int a,b;
-  scanf("%d%d",&a,&b);
-  int d=a/b;
-  int r=a%b;
-  double f=(double)a/b;
-  printf("%d %d %.5lf",d,r,f);
-  return 0;
-}
+  int main(){
+    int r1,r2,d1,d2;
+    scanf("%d%d%d%d",&r1,&r2,&d1,&d2);
+    int finaldominator=r1+d1;
+    int finaleverules=r2+d2;
+    if(finaldominator>finaleverules){
+      printf("Dominater\n");
+    }else{
+      printf("Everule\n");
+    }
+    return 0;
+  }
