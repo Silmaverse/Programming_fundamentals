@@ -1,17 +1,15 @@
 #include <stdio.h>
+#include <math.h>
 
 int main(){
    int t;
    scanf("%d",&t);
    while (t--){
-     int n,x;
-     scanf("%d %d",&n,&x);
-     int un=(2*n)-x;
-     if(un>=x) printf("0\n");
-     else{
-      int min=x-un;
-      printf("%d\n",min);
-     } 
+     int x;
+     scanf("%d",&x);
+     double getcommision=(x*20)/100.0;
+     int sell=ceil(100/getcommision);
+     printf("%d\n",sell);
    }
    return 0;
 }
