@@ -1,16 +1,17 @@
 #include <stdio.h>
-#include <math.h>
 
 int main(){
    int t;
    scanf("%d",&t);
    while (t--){
-    int x,y,z;
-    scanf("%d%d%d",&x,&y,&z);
-    int total=x*y;
-    int passrate=total/2;
-    if(z>passrate) printf("Yes\n");
-    else printf("No\n");
-   }  
+     int n,x;
+     scanf("%d %d",&n,&x);
+     int un=(2*n)-x;
+     if(un>=x) printf("0\n");
+     else{
+      int min=x-un;
+      printf("%d\n",min);
+     } 
+   }
    return 0;
 }
