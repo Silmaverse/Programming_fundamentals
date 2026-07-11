@@ -6,29 +6,8 @@ int main(){
   while (t--){
     int n;
     scanf("%d",&n);
-    int b[n];
-  for(int i=0;i<n;i++){
-    scanf("%d",&b[i]);
-  } 
-  int m=1,a[n*2];
-  a[0]=b[0];
-  for(int i=1,j=1;i<n;i++){
-    if(b[i]<b[i-1]){
-      a[j]=b[i];
-      j++;
-      m++;
-      
-    }
-    a[j]=b[i];
-    j++;
-    m++;
-    
-  }
-  printf("%d\n",m);
-  for(int i=0;i<m;i++){
-    printf("%d ",a[i]); 
-    }
+    for(int i=n;i>=1;i--) printf("%d ",i);
     printf("\n");
   }
-  return 0;
+return 0;
 }
