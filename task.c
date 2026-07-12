@@ -16,38 +16,13 @@ int main(){
       printf("-1\n");
       continue;
     }
-    else{
-      
-     if(n==1){ 
-      int mid=1+(m-1)/2;
-      for(int i=m;i>=1;i--){
-        if(i!=mid) printf("%d ",arr[1][i]);
+    for(int i=1;i<=n;i++){
+      for(int j=1;j<=m;j++){
+        printf("%d ",arr[i][j]%(n*m)+1);
       }
-      printf("%d\n",arr[1][mid]);
-      continue;
+      printf("\n");
     }
-    else if(m==1){
-      int mid=1+(n-1)/2;
-      for(int i=n;i>=1;i--){
-        if(i==mid) continue;
-        for(int j=m;j>=1;j--){
-          printf("%d",arr[i][j]);
-        }
-        printf("\n");        
-      }
-      printf("%d\n",arr[mid][1]);
-      continue;
-    }
-    else{
-
-      for(int i=n;i>=1; i--){
-        for(int j=m;j>=1;j--){
-          printf("%d ",arr[i][j]); 
-        }
-        printf("\n");
-      }
-    }
-    }
+   
 
   }
 return 0;
