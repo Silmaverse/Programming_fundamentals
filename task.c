@@ -4,17 +4,12 @@ int main(){
   int t;
   scanf("%d",&t);
   while (t--){
-    int n;
-    int arr[n+1];
-    scanf("%d",&n);
-    for(int i=0;i<n;i++){
-      scanf("%d",&arr[i]);
-    } 
-    for(int i=0;i<n;i++){
-      if(arr[i]==0){
-        printf("0\n");
-      }
-    }
+    int a,b,c;
+    scanf("%d%d%d",&a,&b,&c);
+    int x=a+b+c;
+    int y=b+c;
+    int z=c;
+    printf("%d %d %d\n",x,y,z);
   }
 return 0;
 }
