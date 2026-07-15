@@ -4,12 +4,40 @@ int main(){
   int t;
   scanf("%d",&t);
   while (t--){
-    int a,b,c;
-    scanf("%d%d%d",&a,&b,&c);
-    int x=a+b+c;
-    int y=b+c;
-    int z=c;
-    printf("%d %d %d\n",x,y,z);
+    int n;
+    scanf("%d",&n);
+    int x=n/5,y=n%5;
+    for(int i=0;i<x;i++){
+      printf("a");
+    }if(y){
+     printf("a");
+     y--; 
+    }
+    for(int i=0;i<x;i++){
+      printf("e");
+    }if(y){
+     printf("e");
+     y--; 
+    }
+    for(int i=0;i<x;i++){
+      printf("i");
+    }if(y){
+     printf("i");
+     y--; 
+    }
+    for(int i=0;i<x;i++){
+     printf("o");
+    }if(y){
+     printf("o");
+     y--; 
+    }
+    for(int i=0;i<x;i++){
+      printf("u");
+    }if(y){
+     printf("u");
+     y--; 
+    }
+    printf("\n");
   }
-return 0;
+ return 0;
 }
