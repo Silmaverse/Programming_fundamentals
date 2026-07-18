@@ -6,38 +6,17 @@ int main(){
   while (t--){
     int n;
     scanf("%d",&n);
-    int x=n/5,y=n%5;
-    for(int i=0;i<x;i++){
-      printf("a");
-    }if(y){
-     printf("a");
-     y--; 
+    int arr[n+1];
+    int mn=100;
+    for(int i=0;i<n;i++){
+      scanf("%d",&arr[i]);
+      if(mn>arr[i]) mn=arr[i];
     }
-    for(int i=0;i<x;i++){
-      printf("e");
-    }if(y){
-     printf("e");
-     y--; 
+    int ans=0;
+    for(int i=0;i<n;i++){
+       if(arr[i]!=mn) ans++;
     }
-    for(int i=0;i<x;i++){
-      printf("i");
-    }if(y){
-     printf("i");
-     y--; 
-    }
-    for(int i=0;i<x;i++){
-     printf("o");
-    }if(y){
-     printf("o");
-     y--; 
-    }
-    for(int i=0;i<x;i++){
-      printf("u");
-    }if(y){
-     printf("u");
-     y--; 
-    }
-    printf("\n");
+    printf("%d\n",ans);
   }
  return 0;
 }
