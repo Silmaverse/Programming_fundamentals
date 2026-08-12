@@ -5,15 +5,24 @@ int main(){
   int t;
   scanf("%d",&t);
   while (t--){
-    int n,k,mx=0,ans=0;
-    scanf("%d%d",&n,&k);
-    int arr[k];
-    for (int i = 0; i < k; i++){
-      scanf("%d",&arr[i]);
-      ans+=2*arr[i]-1;
-      if(mx<arr[i]) mx=arr[i]; 
+    long long n;
+    scanf("%lld",&n);
+    int ans=0;
+    while(n!=1){
+      if(n%2==0){
+        n/=2; 
+      }else if(n%3==0){
+        n/=3;
+        n*=2;
+      }else if(n%5==0){
+        n/=5;
+        n*=4;
+      }else{
+        ans=-1;
+        break;
+      }
+      ans++;
     }
-    ans-=mx*2-1;
     printf("%d\n",ans);
   } 
   return 0;
