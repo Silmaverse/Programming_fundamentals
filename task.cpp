@@ -2,28 +2,28 @@
 using namespace std;
 
 int main(){
-  int t;
-  scanf("%d",&t);
-  while (t--){
-    long long n;
-    scanf("%lld",&n);
-    int ans=0;
-    while(n!=1){
-      if(n%2==0){
-        n/=2; 
-      }else if(n%3==0){
-        n/=3;
-        n*=2;
-      }else if(n%5==0){
-        n/=5;
-        n*=4;
-      }else{
-        ans=-1;
-        break;
-      }
-      ans++;
-    }
-    printf("%d\n",ans);
-  } 
+  int n;
+  scanf("%d",&n);
+  int robo[n],bionic[n];
+  for(int i=0;i<n;i++){
+    scanf("%d",&robo[i]);
+  }
+  for(int i=0;i<n;i++){
+    scanf("%d",&bionic[i]);
+  }
+  int x=0,y=0,ans=0;
+  for(int i=0;i<n;i++){
+    if(robo[i]==1 && bionic[i]==1) continue;
+    else if(robo[i]==1 && bionic[i]==0) x++;
+    else if(robo[i]==0 && bionic[i]==1)y++;
+  }
+  if(x==0){
+    printf("-1\n");
+    return 0;
+  }
+  else{
+    ans=(y+x)/x;
+  }
+  printf("%d\n",ans);
   return 0;
 }
