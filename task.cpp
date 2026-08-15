@@ -2,27 +2,17 @@
 using namespace std;
 
 int main(){
-  int t;
-  scanf("%d",&t);
-  while (t--){
-
-    int n;
-    scanf("%d",&n);
-    if(n%2==0){
-      while (n>0){
-        printf("1");
-        n-=2;
-      }
-      printf("\n");
-    }else{
-      printf("7");
-      n-=3;
-      while (n>0){
-        printf("1");
-        n-=2;
-      }
-      printf("\n");
-    }
+  int n,m;
+  scanf("%d%d",&n,&m);
+  int arr[m];
+  for(int i=0;i<m;i++){
+   scanf("%d",&arr[i]); 
   }
+  sort(arr,arr+m);
+  int j=n-1,ans=1002;
+  for(int i=0;j<m;j++,i++){
+    ans=min(arr[j]-arr[i],ans);
+  }
+  printf("%d\n",ans);
   return 0;
 }
