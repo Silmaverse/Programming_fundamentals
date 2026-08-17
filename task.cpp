@@ -2,14 +2,15 @@
 using namespace std;
 
 int main(){
-  int n;
-  scanf("%d",&n);
-  int ai[n],pi[n],ans=0,mn=101;
-  for(int i = 0; i <n; i++){
-    scanf("%d%d",&ai[i],&pi[i]);
-    if(mn>pi[i]) mn=pi[i];
-    ans+=ai[i]*mn;
+  int n,m;
+  scanf("%d%d",&n,&m);
+  if(m){
+    int remaining=n-m;
+    int ans=min(m,remaining);
+    printf("%d",ans);
+  }else{
+    printf("1\n"); 
   }
-  printf("%d\n",ans);
+
   return 0;
 }
