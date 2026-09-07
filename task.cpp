@@ -5,28 +5,19 @@ int main(){
   int t;
   scanf("%d",&t);
   while (t--){
-    int n,k;
-    scanf("%d%d",&n,&k);
-    int arr[n],barr[n],id[n],ans[n];
+    int n;
+    scanf("%d",&n);
+    int arr[n];
     for (int i = 0; i < n; i++){
       scanf("%d",&arr[i]);
-      id[i]=i;// Store original indices: 0, 1, 2, ..., n-1
     }
-    for (int i = 0; i < n; i++){
-      scanf("%d",&barr[i]);
+    sort(arr,arr+n);
+    int u=1;
+    for(int i=1;i<n;i++){
+      if(arr[i]!=arr[i-1]) u++;
     }
-    sort(barr,barr+n);
-    //sort index array 'id' based on the value in arr
-    sort(id,id+n,[&](int i,int j){
-       return arr[i]<arr[j];   
-    });
-    //id array give the index of arr's smallest element
-    for (int i = 0; i < n; i++){
-      ans[id[i]]=barr[i];
-    }
-    
-    for(int i=0;i<n;i++){
-      printf("%d ",ans[i]);  
+    for (int k = 1; k<=n; k++){
+      printf("%d ",max(k,u));
     }
     printf("\n");
   }
