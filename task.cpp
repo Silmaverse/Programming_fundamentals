@@ -5,21 +5,29 @@ int main(){
   int t;
   scanf("%d",&t);
   while (t--){
-    int n,a,b;
-    scanf("%d%d%d",&n,&a,&b);
-    char str[n+1];
-    scanf("%s",str);
+    int n;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++){
+      scanf("%d",&arr[i]);
+    }
     int ans=0;
-    if(b>=0) ans=(a+b)*n;
-    else{
-      int block=1;
-      for(int i=0;i<n-1;i++){
-        if(str[i]!=str[i+1])block++;
+    for (int i = 1; i +1< n; i++){
+      if(arr[i]>arr[i-1] && arr[i]>arr[i+1]){
+        if(i+2<n){
+          arr[i+1]=max(arr[i],arr[i+2]);
+        }else{
+            arr[i+1]=arr[i];
+        }
+        ans++;
+
       }
-      int op=(block/2)+1;
-      ans=a*n+b*op;
     }
     printf("%d\n",ans);
+    for(int i=0;i<n;i++){
+      printf("%d ",arr[i]); 
+    }
+    printf("\n");
   }
   
   return 0;
