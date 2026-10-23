@@ -1,24 +1,27 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdbool.h>
 #include <ctype.h>
 
-int uppercaseIndex(char str[]){
-
-    int upperIndex=0;
-    for (int j = 0; j < strlen(str); j++){
-       if(isupper(str[j])){
-        upperIndex=j;
-       }
+bool monsterWin(int arr[],int h,int n){
+    int sum=0;
+    for (int i = 0; i < n; i++){
+      sum+=arr[i];
     }
-    
-    return upperIndex+1;    
+    if(sum>=h) return true;
+    else return false;
 }
 
 int main(){
- char str[1001];
- scanf("%s",str);
- int upperindex =uppercaseIndex(str);
- printf("%d",upperindex);
- return 0;
- 
+  int h,n;
+  scanf("%d%d",&h,&n);
+  int arr[n];
+  for (int i = 0; i < n; i++){
+    scanf("%d",&arr[i]);
+  }
+  
+  bool ans=monsterWin(arr,h,n);
+  if(ans) 
+  printf("Yes\n");
+  else printf("No\n");
+  return 0;
 }
