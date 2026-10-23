@@ -1,24 +1,24 @@
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
-int max(int n,int arr[]){
- int mx=0;
- for(int i=1 ;i<n;i++){
-   if(mx<arr[i]) mx=arr[i];
- }
-  
- return mx;
+int uppercaseIndex(char str[]){
+
+    int upperIndex=0;
+    for (int j = 0; j < strlen(str); j++){
+       if(isupper(str[j])){
+        upperIndex=j;
+       }
+    }
+    
+    return upperIndex+1;    
 }
 
 int main(){
-  int n;
-  scanf("%d",&n);
-  int arr[n];
-  for(int i=0;i<n;i++) scanf("%d",&arr[i]);
-
-  int maxnum=max(n,arr);
-  int ans=maxnum-arr[0]+1;
-  if(ans<0) ans=0;
-  printf("%d",ans);
-  
-  return 0;
+ char str[1001];
+ scanf("%s",str);
+ int upperindex =uppercaseIndex(str);
+ printf("%d",upperindex);
+ return 0;
+ 
 }
