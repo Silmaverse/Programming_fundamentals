@@ -3,8 +3,8 @@
 int mathFunction(int n,int p,int m){
   
   int count=0;
-  for (int i = 1; i<=n; i++){
-    if(m<=n) count++; 
+  while(m<=n){
+    count++; 
     m+=p;
   }
   return count;
