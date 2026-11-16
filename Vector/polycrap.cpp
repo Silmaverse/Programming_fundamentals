@@ -4,15 +4,15 @@ using namespace std;
 int main(){
   int n;
   cin>>n;
-  vector <int> v(n+1);
-  for (int i = 1; i<=n; i++){
+  vector <int> v(n);
+  for (int i =0; i<n; i++){
     cin>>v[i];
   }
-  int ans=0;
-  sort(v.begin()+1,v.end());
-  for (int i = 1; i<=n; i++){
-   if(v[i]==i) ans++; 
+  int pos=0;
+  sort(v.begin(),v.end());
+  for (int i = 0; i<n; i++){
+   if(v[i]>pos) pos++; 
   }
-  cout<<ans<<'\n';
+  cout<<pos<<'\n';
   return 0;   
 }
